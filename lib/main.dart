@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -32,7 +33,10 @@ class _QuizPageState extends State<QuizPage> {
     'You can lead a cow down stairs but not up stairs.?',
     'Approximately one quarter of human bones are in the feet.?',
     'A slug\'s blood is green.?',
+    'our state is kerala.?',
   ];
+
+  List<bool> answers = [false, true, true, false];
 
   int questionNumber = 0;
 
@@ -63,7 +67,8 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(15.0),
             child: TextButton(
               style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 10, 100, 13))),
+                  backgroundColor: MaterialStatePropertyAll(
+                      Color.fromARGB(255, 10, 100, 13))),
               child: Text(
                 'True',
                 style: TextStyle(
@@ -73,6 +78,14 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
+
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == true) {
+                  print('user got it right!');
+                } else {
+                  print('user got it wromg');
+                }
                 setState(() {
                   questionNumber++;
                 });
@@ -86,7 +99,8 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(15.0),
             child: TextButton(
               style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 133, 12, 3))),
+                  backgroundColor: MaterialStatePropertyAll(
+                      Color.fromARGB(255, 133, 12, 3))),
               child: Text(
                 'False',
                 style: TextStyle(
@@ -96,6 +110,14 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
+                
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == false) {
+                  print('user got it right!');
+                } else {
+                  print('user got it wromg');
+                }
                 setState(() {
                   questionNumber++;
                 });
@@ -117,3 +139,4 @@ question1: 'You can lead a cow down stairs but not up stairs.', false,
 question2: 'Approximately one quarter of human bones are in the feet.', true,
 question3: 'A slug\'s blood is green.', true,
 */
+
